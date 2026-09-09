@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-orbitron: 'Orbitron', sans-serif;
+    --font-rajdhani: 'Rajdhani', sans-serif;
+    --font-chakra: 'Chakra Petch', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+  }
+}
+
+.font-orbitron { font-family: var(--font-orbitron); }
+.font-rajdhani { font-family: var(--font-rajdhani); }
+.font-chakra { font-family: var(--font-chakra); }
+.font-mono { font-family: var(--font-mono); }
+.font-sans { font-family: var(--font-sans); }
+
+/* Sci-fi HUD Base Aesthetics */
+body {
+  background-color: #05080D;
+  color: #EAEFF5;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 217, 255, 0.07) 0%, transparent 60%),
+    radial-gradient(circle at 85% 60%, rgba(255, 176, 0, 0.03) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(5, 8, 13, 0.95), rgba(10, 14, 20, 0.98));
+  background-attachment: fixed;
+}
+
+/* CRT Overlay */
+.crt-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 217, 255, 0.025) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.01),
+    rgba(0, 255, 0, 0.005),
+    rgba(0, 0, 255, 0.01)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* HUD Glassmorphism Panels */
+.hud-panel {
+  background: rgba(10, 14, 20, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 12px rgba(0, 217, 255, 0.05);
+  position: relative;
+}
+
+.hud-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-panel-hover:hover {
+  border-color: rgba(0, 217, 255, 0.6);
+  box-shadow: 0 0 25px rgba(0, 217, 255, 0.25), inset 0 0 15px rgba(0, 217, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.hud-panel-gold {
+  background: rgba(14, 12, 8, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 176, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 12px rgba(255, 176, 0, 0.05);
+}
+
+/* Corner Bracket Accents ⌐ ¬ */
+.hud-bracket {
+  position: relative;
+}
+.hud-bracket::before,
+.hud-bracket::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: #00D9FF;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+.hud-bracket::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.hud-bracket::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+.hud-bracket:hover::before,
+.hud-bracket:hover::after {
+  width: 14px;
+  height: 14px;
+  border-color: #1FE3FF;
+  opacity: 1;
+}
+
+/* Rotating Animations */
+@keyframes spin-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-ccw {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes arc-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(0, 217, 255, 0.7)) drop-shadow(0 0 30px rgba(0, 217, 255, 0.4));
+    opacity: 0.9;
+  }
+  50% {
+    filter: drop-shadow(0 0 35px rgba(0, 217, 255, 0.95)) drop-shadow(0 0 60px rgba(31, 227, 255, 0.6));
+    opacity: 1;
+  }
+}
+
+@keyframes hud-scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-spin-cw-slow {
+  animation: spin-cw 35s linear infinite;
+}
+
+.animate-spin-ccw-slow {
+  animation: spin-ccw 25s linear infinite;
+}
+
+.animate-spin-cw-fast {
+  animation: spin-cw 12s linear infinite;
+}
+
+.animate-arc-pulse {
+  animation: arc-pulse 3s ease-in-out infinite;
+}
+
+.animate-scanline {
+  animation: hud-scanline 8s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #05080D;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 217, 255, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 217, 255, 0.7);
+  box-shadow: 0 0 10px #00D9FF;
+}

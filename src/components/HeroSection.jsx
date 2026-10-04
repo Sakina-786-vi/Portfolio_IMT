@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Terminal, Shield, ArrowUpRight, Mail, Phone, ExternalLink, Download, Code } from 'lucide-react';
 import { soundFx } from '../utils/sound';
 import ArcReactor from './ArcReactor';
+import aimlResume from '../assets/Sakina_Resume_AIML.pdf';
+import iotResume from '../assets/Sakina_Resume_iot.pdf';
 
 // Custom Crisp SVG Icons for Brand Networks
 const GithubIcon = ({ className = "w-4 h-4" }) => (
@@ -169,17 +171,25 @@ export default function HeroSection({ onNavigate }) {
             </a>
 
             <a
-              href="#dossier"
-              onClick={(e) => {
-                e.preventDefault();
-                soundFx.playClickSound();
-                onNavigate('about');
-              }}
+              href={aimlResume}
+              download="Sakina_Rizvi_Resume_AIML.pdf"
+              onClick={() => soundFx.playClickSound()}
               onMouseEnter={() => soundFx.playHoverBeep()}
               className="px-5 py-3 bg-[#0A0E14]/80 border border-slate-700 text-slate-300 font-mono text-xs tracking-wider rounded-sm hover:border-[#00D9FF] hover:text-[#00D9FF] transition-all flex items-center gap-2"
             >
               <Download className="w-4 h-4" />
-              <span>DOWNLOAD DOSSIER</span>
+              <span>DOWNLOAD AI/ML RESUME</span>
+            </a>
+
+            <a
+              href={iotResume}
+              download="Sakina_Rizvi_Resume_IoT.pdf"
+              onClick={() => soundFx.playClickSound()}
+              onMouseEnter={() => soundFx.playHoverBeep()}
+              className="px-5 py-3 bg-[#0A0E14]/80 border border-slate-700 text-slate-300 font-mono text-xs tracking-wider rounded-sm hover:border-[#FFB000] hover:text-[#FFB000] transition-all flex items-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              <span>DOWNLOAD IOT RESUME</span>
             </a>
           </motion.div>
 

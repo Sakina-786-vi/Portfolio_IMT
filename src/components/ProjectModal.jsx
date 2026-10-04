@@ -79,19 +79,6 @@ export default function ProjectModal({ project, onClose }) {
               </div>
             )}
 
-            {/* Hardware / ML Pipeline Flow (Visual HUD Diagram Box) */}
-            <div className="p-4 bg-[#05080D]/90 border border-cyan-500/30 rounded-sm space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs text-[#00D9FF] font-bold">// DATA FLOW PROTOCOL</span>
-                <span className="font-mono text-[10px] text-emerald-400">STATE: VERIFIED</span>
-              </div>
-              <div className="font-mono text-xs text-slate-400 bg-[#0A0E14] p-3 rounded border border-slate-800 space-y-1">
-                <div className="text-cyan-400">SENSOR / DATA INPUT → PREPROCESSING & EMBEDDINGS</div>
-                <div className="text-amber-400">↓ ML EVALUATION MATRIX (ISOLATION FOREST / XGBOOST / RAG)</div>
-                <div className="text-emerald-400">↓ REAL-TIME HUD DASHBOARD & RISK ALERTS</div>
-              </div>
-            </div>
-
             {/* Tech Stack Tags */}
             <div>
               <h4 className="font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">

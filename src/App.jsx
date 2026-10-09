@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BootSequence from './components/BootSequence';
+import ArcReactorIntro from './components/ArcReactorIntro';
 import CanvasBackground from './components/CanvasBackground';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
@@ -67,6 +68,9 @@ export default function App() {
       
       {/* Boot Sequence Overlay */}
       <BootSequence onComplete={() => setBooting(false)} />
+
+      {/* Cinematic Reactor Video Intro */}
+      <ArcReactorIntro />
 
       {/* Cybernetic Particle Background */}
       <CanvasBackground />
